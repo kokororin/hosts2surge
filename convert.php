@@ -30,7 +30,7 @@ if (!is_file($filename))
 
 $datas = urlencode(file_get_contents($filename));
 $datas = str_replace(array('%0A', '%09', '+'), array("\n", ' ', ' '), $datas);
-$datas = preg_replace('/^\s*$/', ' ', $datas);
+$datas = preg_replace('/[ ]{1,}/', ' ', $datas);
 $origin = explode("\n", $datas);
 
 foreach ($origin as $key => $value)
